@@ -1,21 +1,35 @@
 const express = require('express');
 const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = 5002;
 
+
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3002', // ou l'URL de votre frontend
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'] // Ajoutez les méthodes nécessaires
+}));
 app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
 
 // Routes
 app.use('/api', productRoutes);
+app.use('/api', authRoutes);
 
 // Test route
 app.get('/api/test', (req, res) => {
   res.json({ status: "Backend fonctionnel" });
 });
+
 
 // Démarrer le serveur
 app.listen(PORT, () => {
