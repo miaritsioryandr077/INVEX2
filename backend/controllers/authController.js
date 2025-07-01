@@ -38,7 +38,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// Connexion utilisateur (CONSERVEZ CETTE FONCTION)
+// Connexion utilisateur 
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
