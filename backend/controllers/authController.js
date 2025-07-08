@@ -2,7 +2,7 @@
 const db = require('../config/db');
 const bcrypt = require('bcrypt');
 
-// Inscription utilisateur
+// INSCRIPTION UTILISATEUR
 exports.register = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -38,7 +38,8 @@ exports.register = async (req, res) => {
   }
 };
 
-// Connexion utilisateur (CONSERVEZ CETTE FONCTION)
+
+// CONNEXION UTILISATEUR
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;

@@ -7,6 +7,5 @@ router.get('/products', productController.getAllProducts);
 router.delete('/products/:id', productController.deleteProduct);
 router.put('/products/:id', productController.updateProduct);
 router.get('/products/stats', productController.getProductsStats);
-// router.get('/api/products/check', productController.checkProductExists);
 
 module.exports = router;

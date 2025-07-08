@@ -6,13 +6,11 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 const PORT = 5002;
 
-
-
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3002', // ou l'URL de votre frontend
+  origin: 'http://localhost:3002', // URL du frontend
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'] // Ajoutez les méthodes nécessaires
+  methods: ['GET', 'POST', 'PUT', 'DELETE'] 
 }));
 app.use(express.json());
 
@@ -29,7 +27,6 @@ app.use('/api', authRoutes);
 app.get('/api/test', (req, res) => {
   res.json({ status: "Backend fonctionnel" });
 });
-
 
 // Démarrer le serveur
 app.listen(PORT, () => {
